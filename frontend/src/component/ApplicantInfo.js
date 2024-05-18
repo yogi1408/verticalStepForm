@@ -53,19 +53,6 @@ const ApplicantInfo = ({ formData, setFormData, activeStep, setActiveStep, step,
     },
   ];
 
-  React.useEffect(() => {
-    const updatedValidity = {
-      1: true,
-      2: formData.companyUEN.length === 9 && formData.companyName.length >= 2,
-    };
-    setStepValidity(updatedValidity);
-
-    const validSteps = Object.keys(updatedValidity).filter((key) => updatedValidity[key]);
-    if (validSteps.length > 0) {
-      setActiveStep(validSteps.length - 1);
-    }
-  }, [formData, setActiveStep, setStepValidity]);
-
   return (
     <Grid container spacing={2}>
       {fields.map((field) => (

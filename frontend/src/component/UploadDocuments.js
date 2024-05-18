@@ -71,24 +71,6 @@ const UploadDocuments = ({ formData, setFormData, activeStep, setActiveStep, ste
     disabled: activeStep < 2 || files.length >= 6,
   });
 
-  React.useEffect(() => {
-    const updatedValidity = {
-      1: true,
-      2: formData.companyUEN.length == 9 && formData.companyName.length >= 2,
-      3:
-        (formData.email.length > 0 || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) &&
-        formData.position.length >= 2 &&
-        /^[6|8|9]\d{7}$/.test(formData.phoneNumber) &&
-        formData.email == formData.confirmEmail,
-    };
-    setStepValidity(updatedValidity);
-
-    const validSteps = Object.keys(updatedValidity).filter((key) => updatedValidity[key]);
-    if (validSteps.length > 0) {
-      setActiveStep(validSteps.length - 1);
-    }
-  }, [formData]);
-
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <div style={{ display: "flex", flex: 1 }}>

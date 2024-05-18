@@ -70,7 +70,6 @@ export default function BankForm() {
         email: formData.email,
         phoneNumber: formData.phoneNumber,
         name: formData.name,
-        files: formData.files,
         terms: formData.terms,
         position: formData.position,
       });

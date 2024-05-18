@@ -10,7 +10,12 @@ const UploadDocuments = ({ formData, setFormData, activeStep, setActiveStep, ste
   const { files = [] } = formData || {};
 
   const onDrop = async (acceptedFiles) => {
-    const filesWithMetadata = acceptedFiles.map((file) => ({
+    const pdfFiles = acceptedFiles.filter((file) => file.type === "application/pdf");
+    if (pdfFiles.length === 0) {
+      alert("Please upload only PDF files.");
+      return;
+    }
+    const filesWithMetadata = pdfFiles.map((file) => ({
       name: file.name,
       size: file.size,
       type: file.type,

@@ -1,4 +1,4 @@
-This application spam contacts like truecaller. It utilizes data and stores information in a PostgreSQL database using Prisma ORM.
+This application contains vertical stepper form. It utilizes data and stores information in a PostgreSQL database using Prisma ORM.
 
 ## How to Run
 

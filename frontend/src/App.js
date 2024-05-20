@@ -4,15 +4,32 @@ import "./App.css";
 import BankForm from "./BankForm";
 import Header from "./Header";
 import BankDetail from "./BankDetail";
+import NotFound from "./NotFound";
 
 function App() {
   return (
     <BrowserRouter>
       <div>
-        <Header />
         <Routes>
-          <Route path="/" element={<BankForm />} />
-          <Route path="/detail" element={<BankDetail />} />
+          <Route
+            path="/"
+            element={
+              <React.Fragment>
+                <Header />
+                <BankForm />
+              </React.Fragment>
+            }
+          />
+          <Route
+            path="/detail"
+            element={
+              <React.Fragment>
+                <Header />
+                <BankDetail />
+              </React.Fragment>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
